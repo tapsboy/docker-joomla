@@ -14,8 +14,8 @@ RUN rm -fr /app && mkdir /app && \
  rm Joomla_3.3.3-Stable-Full_Package.zip
 
 # Add wp-config with info for Wordpress to connect to DB
-ADD wp-config.php /app/wp-config.php
-RUN chmod 644 /app/wp-config.php
+ADD configuration.php /app/configuration.php
+RUN chmod 644 /app/configuration.php
 
 # Fix permissions for apache
 RUN chown -R www-data:www-data /app
