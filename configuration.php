@@ -1,4 +1,5 @@
 <?php
+
 class JConfig {
   public $offline = '0';
   public $offline_message = 'This site is down for maintenance.<br /> Please check back again soon.';
@@ -12,10 +13,10 @@ class JConfig {
   public $debug = '0';
   public $debug_lang = '0';
   public $dbtype = 'mysqli';
-  public $host = getenv('DB_1_PORT_3306_TCP_ADDR') . ":" . getenv('DB_1_PORT_3306_TCP_PORT');
+  public $host = "localhost";
   public $user = 'root';
-  public $password = getenv('DB_PASSWORD');
-  public $db = getenv('DB_NAME');
+  public $password = "";
+  public $db = "joomla";
   public $dbprefix = 'fi3ly_';
   public $live_site = '';
   public $secret = 'WKhGYZex77k5VQTW';
@@ -58,4 +59,10 @@ class JConfig {
   public $tmp_path = '/data02/aeappdir/webapps/wp.local/tmp';
   public $lifetime = '15';
   public $session_handler = 'database';
+
+  public function __construct() {
+    $this->host = getenv('DB_1_PORT_3306_TCP_ADDR') . ":" . getenv('DB_1_PORT_3306_TCP_PORT');
+    $this->password = getenv('DB_PASSWORD');
+    $this->db = getenv('DB_NAME');
+  }
 }
