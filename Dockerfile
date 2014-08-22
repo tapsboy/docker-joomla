@@ -7,15 +7,15 @@ RUN apt-get update && \
  DEBIAN_FRONTEND=noninteractive apt-get -y install supervisor pwgen && \
  apt-get -y install mysql-client unzip
 
-# Download Wordpress into /app
+# Download Joomla into /app
 RUN rm -fr /app && mkdir /app && \
  curl -O http://joomlacode.org/gf/download/frsrelease/19665/160049/Joomla_3.3.3-Stable-Full_Package.zip && \
  unzip Joomla_3.3.3-Stable-Full_Package.zip -d /app  && \
  rm Joomla_3.3.3-Stable-Full_Package.zip
 
-# Add wp-config with info for Wordpress to connect to DB
-ADD configuration.php /app/configuration.php
-RUN chmod 644 /app/configuration.php
+# Add configuration with info for Joomla to connect to DB
+#ADD configuration.php /app/configuration.php
+#RUN chmod 644 /app/configuration.php
 
 # Fix permissions for apache
 RUN chown -R www-data:www-data /app
